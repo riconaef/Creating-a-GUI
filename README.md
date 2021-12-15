@@ -1,5 +1,5 @@
 # Creating-a-GUI
-A GUI with interactively plots.
+A GUI with interactively plots on the example of Dilatometer data.
 
 ### Follwoing are the used libraries
 pandas<br />
