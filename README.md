@@ -1,2 +1,19 @@
 # Creating-a-GUI
-This script creates a GUI with interactively plots. Moreover, calculations of stiffnes parameters can be carried out to 
+A GUI with interactively plots.
+
+### Follwoing are the used libraries
+pandas<br />
+numpy<br />
+mplcursors<br />
+tkinter<br />
+pandastable<br />
+matplotlib<br />
+
+
+### Project Motivation
+The data are measured on the field in a borehole to estimate the elasticy of the rock. With the help of this program, the E-Modul and G-Modul can be calculated with the help of interactively plots.
+
+### File Descriptions
+GUI_Dilatometer.p<br />
+
+The program should run in Python without problems. 
