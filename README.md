@@ -14,7 +14,7 @@ matplotlib<br />
 The data are measured on the field in a borehole to estimate the elasticy of the rock. With the help of this program, the E-Modul and G-Modul can be calculated with the help of interactively plots.
 
 ### File Descriptions
-GUI_Dilatometer.py<br />
+Cam_Evaluation_tool.py<br />
 B0001T01.csv<br />
 
 The program should run in Python without problems. With the import button, the csv-File can be imported.
