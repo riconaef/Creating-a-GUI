@@ -21,7 +21,7 @@ class my_program:
         self.left_frame = Frame(root, width=50, height=400, bg='grey')
         self.left_frame.pack(side='left', fill='both', padx=10, pady=5, expand=0)
 
-        self.right_frame = Frame(root, width=1000, height=400, bg='grey')
+        self.right_frame = Frame(root, width=600, height=400, bg='grey')
         self.right_frame.pack(side='right', fill='both', padx=10, pady=5, expand=True)
 
         self.toolbarFrame = Frame(self.right_frame, width=50, height=50, bg='grey')
@@ -181,7 +181,7 @@ class my_program:
         self.tree.column('arm6 [mm]', anchor='center', width=100)
         self.tree.column('AVG [mm]', anchor='center', width=100)
         
-        self.tree.heading('Pres [kPa]', text='Pres [MPa]', anchor='center')
+        self.tree.heading('Pres [kPa]', text='Pres [kPa]', anchor='center')
         self.tree.heading('arm1 [mm]', text='arm1 [mm]', anchor='center')
         self.tree.heading('arm2 [mm]', text='arm2 [mm]', anchor='center')
         self.tree.heading('arm3 [mm]', text='arm3 [mm]', anchor='center')
@@ -193,8 +193,8 @@ class my_program:
 
     def import_data(self):
         self.filepath = askopenfilename(filetypes=[("CSV Files", "*.csv"), ("All Files", "*.*")])
-
-        self.df = pd.read_csv(self.filepath, skiprows=35)
+        self.df = pd.read_csv(self.filepath, skiprows=35, delimiter=',')
+        
         self.df = self.df.drop([0])
         self.df = self.df.drop('Line No.', axis=1)
         self.pres = pd.to_numeric(self.df['TPC Average'], downcast="float")
@@ -217,8 +217,6 @@ class my_program:
                                                 self.df_data.iloc[row].values[5],
                                                 self.df_data.iloc[row].values[6],
                                                 self.df_data.iloc[row].values[7].round(4)))   
-
-
 
     def calculate_modules(self):
         self.test_type = {}
@@ -314,7 +312,7 @@ class my_program:
             
             # save the results in a dataframe
             case_string = [str(case), "", "", "", ""]
-            definition = ["start", "end", "delta", "G-module", "E-module"]
+            definition = ["start", "end", "delta", "G-module [MPa]", "E-module [MPa]"]
             table_temp = pd.DataFrame({'':case_string, ' ': definition, 'Pressure [kPa]': pressure,
                                        'arms 1/4 [mm]': arm14, 'arms 2/5 [mm]': arm25,
                                        'arms 3/6 [mm]': arm36, 'arm average  [mm]': arm_all})
